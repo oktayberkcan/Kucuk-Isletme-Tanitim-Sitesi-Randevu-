@@ -3,68 +3,68 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Premium Modern Berber Salonu",
-      "imageUrl": "https://picsum.photos/seed/barber_interior/1920/1080",
+      "description": "Lüks modern berber dükkanı iç mekanı",
+      "imageUrl": "https://picsum.photos/seed/barbershop-main/1920/1080",
       "imageHint": "barber shop"
     },
     {
       "id": "about-img",
-      "description": "Usta Berber İş Başında",
-      "imageUrl": "https://picsum.photos/seed/barber_hands/800/1000",
+      "description": "Usta berber hassas kesim yaparken",
+      "imageUrl": "https://picsum.photos/seed/barber-pro/800/1000",
       "imageHint": "barber cutting"
     },
     {
       "id": "gallery-1",
-      "description": "Modern Fade Saç Kesimi",
-      "imageUrl": "https://picsum.photos/seed/fade_cut/800/1000",
+      "description": "Keskin Geçişli Modern Fade Kesim",
+      "imageUrl": "https://picsum.photos/seed/haircut-fade/800/1000",
       "imageHint": "fade haircut"
     },
     {
       "id": "gallery-2",
-      "description": "Profesyonel Sakal Bakımı",
-      "imageUrl": "https://picsum.photos/seed/beard_trim/800/1000",
-      "imageHint": "beard trim"
+      "description": "Profesyonel Sakal Tasarımı ve Şekillendirme",
+      "imageUrl": "https://picsum.photos/seed/beard-trim/800/1000",
+      "imageHint": "beard groom"
     },
     {
       "id": "gallery-3",
-      "description": "Geleneksel Ustura Tıraşı",
-      "imageUrl": "https://picsum.photos/seed/shave_session/800/1000",
+      "description": "Geleneksel Sıcak Havlu ve Ustura Tıraşı",
+      "imageUrl": "https://picsum.photos/seed/razor-shave/800/1000",
       "imageHint": "razor shave"
     },
     {
       "id": "gallery-4",
-      "description": "Klasik Pompadour Tasarımı",
-      "imageUrl": "https://picsum.photos/seed/hair_style/800/1000",
+      "description": "Modern Saç Şekillendirme ve Pompadour",
+      "imageUrl": "https://picsum.photos/seed/men-styling/800/1000",
       "imageHint": "hair style"
     },
     {
       "id": "gallery-5",
-      "description": "Canlandırıcı Cilt Bakımı",
-      "imageUrl": "https://picsum.photos/seed/men_facial/800/1000",
-      "imageHint": "facial treatment"
+      "description": "Erkek Cilt Bakımı ve Maske Uygulaması",
+      "imageUrl": "https://picsum.photos/seed/men-facial/800/1000",
+      "imageHint": "men facial"
     },
     {
       "id": "gallery-6",
-      "description": "Hassas Makas İşçiliği",
-      "imageUrl": "https://picsum.photos/seed/scissor_work/800/1000",
+      "description": "Detaylı Makas Kesimi ve Katlandırma",
+      "imageUrl": "https://picsum.photos/seed/scissor-cut/800/1000",
       "imageHint": "scissor haircut"
     },
     {
       "id": "gallery-7",
-      "description": "Saç Boyama ve Kamuflaj",
-      "imageUrl": "https://picsum.photos/seed/hair_dye/800/1000",
+      "description": "Saç Boyama ve Gri Kapatma İşlemi",
+      "imageUrl": "https://picsum.photos/seed/hair-dye/800/1000",
       "imageHint": "hair color"
     },
     {
       "id": "gallery-8",
-      "description": "Detaylı Yıkama ve Masaj",
-      "imageUrl": "https://picsum.photos/seed/hair_washing/800/1000",
+      "description": "Premium Saç Yıkama ve Rahatlama",
+      "imageUrl": "https://picsum.photos/seed/hair-wash/800/1000",
       "imageHint": "hair wash"
     },
     {
       "id": "gallery-9",
-      "description": "Keskin Ense ve Favori Çizimi",
-      "imageUrl": "https://picsum.photos/seed/hair_lines/800/1000",
+      "description": "Detaylı Ense ve Yan Çizim Sanatı",
+      "imageUrl": "https://picsum.photos/seed/hair-design/800/1000",
       "imageHint": "hair design"
     }
   ]
