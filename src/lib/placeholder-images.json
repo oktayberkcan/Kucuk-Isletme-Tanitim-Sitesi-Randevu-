@@ -14,57 +14,57 @@
     },
     {
       "id": "gallery-1",
-      "description": "Precision haircut with sharp fade",
-      "imageUrl": "https://picsum.photos/seed/barber-fade/800/800",
-      "imageHint": "men haircut"
+      "description": "Keskin Geçişli Modern Fade Kesim",
+      "imageUrl": "https://picsum.photos/seed/fade-cut/800/1000",
+      "imageHint": "fade haircut"
     },
     {
       "id": "gallery-2",
-      "description": "Traditional hot towel shave experience",
-      "imageUrl": "https://picsum.photos/seed/barber-shave/800/800",
-      "imageHint": "beard grooming"
+      "description": "Profesyonel Sakal Şekillendirme",
+      "imageUrl": "https://picsum.photos/seed/beard-trim/800/1000",
+      "imageHint": "beard design"
     },
     {
       "id": "gallery-3",
-      "description": "Classic leather barber chairs in row",
-      "imageUrl": "https://picsum.photos/seed/barber-chairs/800/800",
-      "imageHint": "barber shop"
+      "description": "Geleneksel Sıcak Havlu ve Ustura Tıraşı",
+      "imageUrl": "https://picsum.photos/seed/hot-shave/800/1000",
+      "imageHint": "razor shave"
     },
     {
       "id": "gallery-4",
-      "description": "Professional grooming tools and shears",
-      "imageUrl": "https://picsum.photos/seed/barber-tools/800/800",
-      "imageHint": "grooming tools"
-    },
-    {
-      "id": "gallery-5",
-      "description": "Modern hair styling with premium products",
-      "imageUrl": "https://picsum.photos/seed/barber-style/800/800",
+      "description": "Modern Pompadour Saç Stili",
+      "imageUrl": "https://picsum.photos/seed/pompadour/800/1000",
       "imageHint": "hair styling"
     },
     {
+      "id": "gallery-5",
+      "description": "Erkek Cilt Bakımı ve Maske Uygulaması",
+      "imageUrl": "https://picsum.photos/seed/skin-care/800/1000",
+      "imageHint": "skin treatment"
+    },
+    {
       "id": "gallery-6",
-      "description": "Detailed beard sculpting and lining",
-      "imageUrl": "https://picsum.photos/seed/barber-beard/800/800",
-      "imageHint": "beard styling"
+      "description": "Detaylı Makas Kesimi ve Katlandırma",
+      "imageUrl": "https://picsum.photos/seed/scissor-cut/800/1000",
+      "imageHint": "hair cutting"
     },
     {
       "id": "gallery-7",
-      "description": "Satisfied customer reflecting in mirror",
-      "imageUrl": "https://picsum.photos/seed/barber-mirror/800/800",
-      "imageHint": "happy customer"
+      "description": "Saç Boyama ve Gri Kapama İşlemi",
+      "imageUrl": "https://picsum.photos/seed/hair-dye/800/1000",
+      "imageHint": "hair color"
     },
     {
       "id": "gallery-8",
-      "description": "Interior ambiance of Royal Cuts studio",
-      "imageUrl": "https://picsum.photos/seed/barber-interior/800/800",
-      "imageHint": "shop interior"
+      "description": "Premium Saç Yıkama ve Masaj Deneyimi",
+      "imageUrl": "https://picsum.photos/seed/hair-wash/800/1000",
+      "imageHint": "hair massage"
     },
     {
-      "id": "service-preview",
-      "description": "Grooming kit and essence",
-      "imageUrl": "https://picsum.photos/seed/barber-service-pre/600/400",
-      "imageHint": "barber tools"
+      "id": "gallery-9",
+      "description": "Uzun Saç Modelleme ve Bakım",
+      "imageUrl": "https://picsum.photos/seed/long-hair/800/1000",
+      "imageHint": "man bun"
     }
   ]
 }
