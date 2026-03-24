@@ -31,7 +31,7 @@ export default function GalleryPage() {
             />
             
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
+            <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8">
               <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                 <span className="inline-block px-3 py-1 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest rounded-full mb-3 shadow-lg">
                   Royal Signature
