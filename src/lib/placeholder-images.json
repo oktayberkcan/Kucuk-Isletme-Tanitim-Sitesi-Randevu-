@@ -3,32 +3,56 @@
     {
       "id": "hero-bg",
       "description": "Luxurious modern barber shop interior",
-      "imageUrl": "https://picsum.photos/seed/barber1/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/barber-hero/1920/1080",
       "imageHint": "barber salon"
     },
     {
       "id": "gallery-1",
-      "description": "Professional haircut in progress",
-      "imageUrl": "https://picsum.photos/seed/barber2/800/800",
+      "description": "Precision haircut with sharp fade",
+      "imageUrl": "https://picsum.photos/seed/barber-fade/800/800",
       "imageHint": "men haircut"
     },
     {
       "id": "gallery-2",
-      "description": "Classic beard trim detailing",
-      "imageUrl": "https://picsum.photos/seed/barber3/800/800",
+      "description": "Traditional hot towel shave experience",
+      "imageUrl": "https://picsum.photos/seed/barber-shave/800/800",
       "imageHint": "beard grooming"
     },
     {
       "id": "gallery-3",
-      "description": "Barber shop vintage interior details",
-      "imageUrl": "https://picsum.photos/seed/barber4/800/800",
-      "imageHint": "barber chair"
+      "description": "Classic leather barber chairs in row",
+      "imageUrl": "https://picsum.photos/seed/barber-chairs/800/800",
+      "imageHint": "barber shop"
     },
     {
       "id": "gallery-4",
-      "description": "Styling products and tools",
-      "imageUrl": "https://picsum.photos/seed/barber5/800/800",
+      "description": "Professional grooming tools and shears",
+      "imageUrl": "https://picsum.photos/seed/barber-tools/800/800",
       "imageHint": "grooming tools"
+    },
+    {
+      "id": "gallery-5",
+      "description": "Modern hair styling with premium products",
+      "imageUrl": "https://picsum.photos/seed/barber-style/800/800",
+      "imageHint": "hair styling"
+    },
+    {
+      "id": "gallery-6",
+      "description": "Detailed beard sculpting and lining",
+      "imageUrl": "https://picsum.photos/seed/barber-beard/800/800",
+      "imageHint": "beard styling"
+    },
+    {
+      "id": "gallery-7",
+      "description": "Satisfied customer reflecting in mirror",
+      "imageUrl": "https://picsum.photos/seed/barber-mirror/800/800",
+      "imageHint": "happy customer"
+    },
+    {
+      "id": "gallery-8",
+      "description": "Interior ambiance of Royal Cuts studio",
+      "imageUrl": "https://picsum.photos/seed/barber-interior/800/800",
+      "imageHint": "shop interior"
     }
   ]
 }
