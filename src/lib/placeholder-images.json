@@ -3,8 +3,14 @@
     {
       "id": "hero-bg",
       "description": "Luxurious modern barber shop interior",
-      "imageUrl": "https://picsum.photos/seed/barber-hero/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/barber-hero-premium/1920/1080",
       "imageHint": "barber salon"
+    },
+    {
+      "id": "about-img",
+      "description": "Master barber at work with precision",
+      "imageUrl": "https://picsum.photos/seed/barber-master/800/1000",
+      "imageHint": "barber work"
     },
     {
       "id": "gallery-1",
@@ -53,6 +59,12 @@
       "description": "Interior ambiance of Royal Cuts studio",
       "imageUrl": "https://picsum.photos/seed/barber-interior/800/800",
       "imageHint": "shop interior"
+    },
+    {
+      "id": "service-preview",
+      "description": "Grooming kit and essence",
+      "imageUrl": "https://picsum.photos/seed/barber-service-pre/600/400",
+      "imageHint": "barber tools"
     }
   ]
 }

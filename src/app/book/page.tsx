@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -12,15 +13,16 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarIcon, Clock, Scissors, User, Mail, Phone } from "lucide-react";
+import { CalendarIcon, Clock, Scissors, User, Mail, Phone, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 const formSchema = z.object({
-  fullName: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email." }),
-  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
-  serviceType: z.string().min(1, { message: "Please select a service." }),
-  date: z.string().min(1, { message: "Please select a date." }),
-  time: z.string().min(1, { message: "Please select a time." }),
+  fullName: z.string().min(2, { message: "İsim en az 2 karakter olmalıdır." }),
+  email: z.string().email({ message: "Lütfen geçerli bir e-posta adresi girin." }),
+  phone: z.string().min(10, { message: "Lütfen geçerli bir telefon numarası girin." }),
+  serviceType: z.string().min(1, { message: "Lütfen bir hizmet seçin." }),
+  date: z.string().min(1, { message: "Lütfen bir tarih seçin." }),
+  time: z.string().min(1, { message: "Lütfen bir saat seçin." }),
 });
 
 export default function BookPage() {
@@ -43,59 +45,56 @@ export default function BookPage() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // 1. Store in Firestore (initiating mutation without blocking for responsiveness)
+    // Firestore'a kaydet
     addDoc(collection(db, "appointments"), {
       ...values,
+      status: "pending",
       createdAt: serverTimestamp(),
     }).catch((error) => {
       console.error("Firestore error:", error);
       toast({
         variant: "destructive",
-        title: "Submission Error",
-        description: "There was a problem saving your appointment to our database.",
+        title: "Kayıt Hatası",
+        description: "Randevunuz kaydedilirken bir sorun oluştu. Lütfen tekrar deneyin.",
       });
     });
 
-    // 2. Post to Webhook (as requested)
-    const webhookUrl = ""; 
-    if (webhookUrl) {
-      fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
-      }).catch(error => console.error("Webhook error:", error));
-    }
-
-    // Immediately update UI to show success for better UX
-    setIsSuccess(true);
-    setIsSubmitting(false);
-    toast({
-      title: "Appointment Booked!",
-      description: `Thank you ${values.fullName}, we've received your request.`,
-    });
-    form.reset();
+    // Başarı durumuna geç
+    setTimeout(() => {
+      setIsSuccess(true);
+      setIsSubmitting(false);
+      toast({
+        title: "Randevu Onaylandı!",
+        description: `Sayın ${values.fullName}, talebiniz başarıyla alındı.`,
+      });
+    }, 800);
   }
 
   if (isSuccess) {
     return (
-      <div className="container mx-auto px-4 py-20 flex justify-center">
-        <Card className="max-w-md w-full border-primary/20 bg-card">
-          <CardHeader className="text-center">
-            <div className="mx-auto w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-              <Scissors className="text-primary h-8 w-8" />
+      <div className="container mx-auto px-4 py-32 flex justify-center">
+        <Card className="max-w-lg w-full border-primary/20 bg-card shadow-2xl animate-in zoom-in-95 duration-500">
+          <CardHeader className="text-center pt-10">
+            <div className="mx-auto w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+              <CheckCircle2 className="text-primary h-12 w-12" />
             </div>
-            <CardTitle className="text-3xl font-headline font-bold">Booking Confirmed!</CardTitle>
+            <CardTitle className="text-4xl font-headline font-bold">Harika!</CardTitle>
           </CardHeader>
-          <CardContent className="text-center space-y-6">
-            <p className="text-muted-foreground">
-              Your appointment has been successfully scheduled. We'll send a confirmation email to you shortly.
+          <CardContent className="text-center space-y-8 pb-10">
+            <p className="text-muted-foreground text-lg leading-relaxed px-4">
+              Randevu talebiniz başarıyla oluşturuldu. Uzman ekibimiz kısa süre içinde sizinle iletişime geçerek teyit sağlayacaktır.
             </p>
-            <Button asChild className="w-full bg-primary text-primary-foreground font-bold">
-              <a href="/">Return Home</a>
-            </Button>
-            <Button variant="outline" className="w-full" onClick={() => setIsSuccess(false)}>
-              Book Another
-            </Button>
+            <div className="space-y-4 px-6">
+              <Button asChild className="w-full bg-primary text-primary-foreground font-bold h-14 text-lg">
+                <Link href="/">Ana Sayfaya Dön</Link>
+              </Button>
+              <Button variant="outline" className="w-full h-14" onClick={() => {
+                setIsSuccess(false);
+                form.reset();
+              }}>
+                Yeni Randevu Al
+              </Button>
+            </div>
           </CardContent>
         </Card>
       </div>
@@ -103,27 +102,28 @@ export default function BookPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-20 max-w-2xl">
-      <div className="text-center mb-12 space-y-4">
-        <h2 className="text-primary font-headline font-bold uppercase tracking-widest">Reserve Your Seat</h2>
-        <h1 className="text-5xl font-headline font-bold text-foreground">Book Appointment</h1>
+    <div className="container mx-auto px-4 py-24 max-w-3xl">
+      <div className="text-center mb-16 space-y-4">
+        <h2 className="text-primary font-headline font-bold uppercase tracking-widest">Koltuğunuzu Ayırın</h2>
+        <h1 className="text-5xl md:text-6xl font-headline font-bold text-foreground">Online Randevu</h1>
+        <p className="text-muted-foreground text-lg">Hızlı ve kolay bir şekilde yerinizi ayırtın.</p>
       </div>
 
-      <Card className="border-border bg-card/50 shadow-2xl">
-        <CardContent className="pt-6">
+      <Card className="border-border/50 bg-card/50 shadow-2xl backdrop-blur-sm">
+        <CardContent className="pt-10 px-8 pb-10">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FormField
                   control={form.control}
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex items-center gap-2">
-                        <User className="h-4 w-4 text-primary" /> Full Name
+                      <FormLabel className="flex items-center gap-2 text-foreground font-bold">
+                        <User className="h-4 w-4 text-primary" /> Ad Soyad
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="John Doe" {...field} className="bg-background" />
+                        <Input placeholder="Ahmet Yılmaz" {...field} className="h-12 bg-background border-border/50" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -134,11 +134,11 @@ export default function BookPage() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-primary" /> Phone Number
+                      <FormLabel className="flex items-center gap-2 text-foreground font-bold">
+                        <Phone className="h-4 w-4 text-primary" /> Telefon
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="+44 7000 000000" {...field} className="bg-background" />
+                        <Input placeholder="05XX XXX XX XX" {...field} className="h-12 bg-background border-border/50" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -151,11 +151,11 @@ export default function BookPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2">
-                      <Mail className="h-4 w-4 text-primary" /> Email Address
+                    <FormLabel className="flex items-center gap-2 text-foreground font-bold">
+                      <Mail className="h-4 w-4 text-primary" /> E-posta
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="john@example.com" {...field} className="bg-background" />
+                      <Input placeholder="ahmet@example.com" {...field} className="h-12 bg-background border-border/50" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -167,21 +167,21 @@ export default function BookPage() {
                 name="serviceType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center gap-2">
-                      <Scissors className="h-4 w-4 text-primary" /> Service Type
+                    <FormLabel className="flex items-center gap-2 text-foreground font-bold">
+                      <Scissors className="h-4 w-4 text-primary" /> Hizmet Seçimi
                     </FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger className="bg-background">
-                          <SelectValue placeholder="Choose a service" />
+                        <SelectTrigger className="h-12 bg-background border-border/50">
+                          <SelectValue placeholder="Almak istediğiniz hizmeti seçin" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="haircut">Haircut (Saç Kesimi)</SelectItem>
-                        <SelectItem value="beard">Beard Trim (Sakal Düzeltme)</SelectItem>
-                        <SelectItem value="combo">Hair + Beard Combo</SelectItem>
-                        <SelectItem value="skin">Skin Care (Cilt Bakımı)</SelectItem>
-                        <SelectItem value="manicure">Manicure (Manikür)</SelectItem>
+                        <SelectItem value="haircut">Saç Kesimi (₺450)</SelectItem>
+                        <SelectItem value="beard">Sakal Tasarımı (₺300)</SelectItem>
+                        <SelectItem value="combo">Saç + Sakal Combo (₺650)</SelectItem>
+                        <SelectItem value="skin">Cilt Bakımı (₺500)</SelectItem>
+                        <SelectItem value="shave">Geleneksel Tıraş (₺350)</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -189,17 +189,17 @@ export default function BookPage() {
                 )}
               />
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FormField
                   control={form.control}
                   name="date"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex items-center gap-2">
-                        <CalendarIcon className="h-4 w-4 text-primary" /> Preferred Date
+                      <FormLabel className="flex items-center gap-2 text-foreground font-bold">
+                        <CalendarIcon className="h-4 w-4 text-primary" /> Tarih
                       </FormLabel>
                       <FormControl>
-                        <Input type="date" {...field} className="bg-background" />
+                        <Input type="date" {...field} className="h-12 bg-background border-border/50" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -210,11 +210,11 @@ export default function BookPage() {
                   name="time"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex items-center gap-2">
-                        <Clock className="h-4 w-4 text-primary" /> Preferred Time
+                      <FormLabel className="flex items-center gap-2 text-foreground font-bold">
+                        <Clock className="h-4 w-4 text-primary" /> Saat
                       </FormLabel>
                       <FormControl>
-                        <Input type="time" {...field} className="bg-background" />
+                        <Input type="time" {...field} className="h-12 bg-background border-border/50" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -222,16 +222,20 @@ export default function BookPage() {
                 />
               </div>
 
-              <Button type="submit" className="w-full bg-primary text-primary-foreground font-bold h-12 text-lg shadow-[0_0_20px_rgba(38,217,205,0.3)] hover:shadow-[0_0_30px_rgba(38,217,205,0.5)] transition-all" disabled={isSubmitting}>
-                {isSubmitting ? "Processing..." : "Confirm Appointment"}
+              <Button 
+                type="submit" 
+                className="w-full bg-primary text-primary-foreground font-bold h-16 text-xl shadow-xl hover:shadow-primary/20 transition-all" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "İşleniyor..." : "Randevuyu Onayla"}
               </Button>
             </form>
           </Form>
         </CardContent>
       </Card>
       
-      <p className="mt-8 text-center text-sm text-muted-foreground">
-        By booking, you agree to our terms and cancellation policy. We appreciate your punctuality.
+      <p className="mt-12 text-center text-sm text-muted-foreground/60 leading-relaxed max-w-md mx-auto">
+        Randevu alarak hizmet koşullarımızı kabul etmiş sayılırsınız. Lütfen randevu saatinizden 10 dakika önce şubemizde olunuz.
       </p>
     </div>
   );
