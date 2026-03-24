@@ -11,12 +11,12 @@ export default function GalleryPage() {
         <h2 className="text-primary font-headline font-bold uppercase tracking-[0.3em] animate-in fade-in duration-500">Sanat Galerimiz</h2>
         <h1 className="text-5xl md:text-7xl font-headline font-bold text-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">Royal Dokunuşlar</h1>
         <p className="text-muted-foreground text-xl max-w-2xl mx-auto leading-relaxed">
-          Sadece saç kesmiyoruz; karakterinizi ve tarzınızı yansıtan detaylar inşa ediyoruz. İşte koltuğumuzdan çıkan bazı kareler.
+          Her bir koltuk deneyimi, titiz bir işçilik ve modern bir vizyonla harmanlanır. İşte uzman ellerden çıkan bazı çalışmalarımız.
         </p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-        {galleryImages.map((img, index) => (
+        {galleryImages.map((img) => (
           <div 
             key={img.id} 
             className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border/50 bg-card shadow-2xl hover:shadow-primary/10 transition-all duration-500"
@@ -30,7 +30,6 @@ export default function GalleryPage() {
               data-ai-hint={img.imageHint}
             />
             
-            {/* Elegant Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-10">
               <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
                 <span className="inline-block px-4 py-1.5 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest rounded-full mb-4 shadow-lg">
@@ -43,7 +42,6 @@ export default function GalleryPage() {
               </div>
             </div>
 
-            {/* Subtle Border Glow */}
             <div className="absolute inset-0 border border-white/5 group-hover:border-primary/30 transition-colors duration-500 rounded-[2rem] pointer-events-none" />
           </div>
         ))}
