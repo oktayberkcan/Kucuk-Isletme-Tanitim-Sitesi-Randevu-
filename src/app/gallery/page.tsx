@@ -3,16 +3,9 @@
 
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Scissors, Zap, Sparkles, Wind, SprayCan, CheckCircle, ChevronRight } from "lucide-react";
+import { Scissors, Zap, Sparkles, Wind, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-const categories = [
-  { id: "all", label: "Tüm Çalışmalar" },
-  { id: "haircut", label: "Saç Kesimi" },
-  { id: "beard", label: "Sakal Tasarımı" },
-  { id: "care", label: "Bakım & Terapi" }
-];
 
 const portfolioItems = [
   {
@@ -56,6 +49,27 @@ const portfolioItems = [
     category: "Saç Kesimi",
     icon: <Scissors className="h-4 w-4" />,
     description: "Doğal görünüm için hassas makas işçiliği."
+  },
+  {
+    id: "gallery-7",
+    title: "Renk Değişimi",
+    category: "Saç Boyama",
+    icon: <Sparkles className="h-4 w-4" />,
+    description: "Doğal gri kapatma ve modern renk uygulamaları."
+  },
+  {
+    id: "gallery-8",
+    title: "Premium Terapi",
+    category: "Saç Bakımı",
+    icon: <Wind className="h-4 w-4" />,
+    description: "Saç derisini canlandıran özel yıkama ve masaj."
+  },
+  {
+    id: "gallery-9",
+    title: "Grafik Tasarım",
+    category: "Stil Sanatı",
+    icon: <Scissors className="h-4 w-4" />,
+    description: "Saç dövmeleri ve keskin yan hat uygulamaları."
   }
 ];
 
@@ -95,7 +109,7 @@ export default function GalleryPage() {
                     fill
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    data-ai-hint={imgData?.imageHint || "barber style"}
+                    data-ai-hint={imgData?.imageHint || "barber haircut"}
                   />
                   {/* Decorative Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
