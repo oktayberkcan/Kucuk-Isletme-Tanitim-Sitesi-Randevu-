@@ -1,9 +1,8 @@
-
 "use client";
 
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Scissors, Zap, Sparkles, Wind, CheckCircle, Camera } from "lucide-react";
+import { Scissors, Zap, Wind, CheckCircle, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -30,20 +29,6 @@ const portfolioItems = [
     description: "Sıcak havlu eşliğinde ustura ile pürüzsüz bir deneyim."
   },
   {
-    id: "gallery-5",
-    title: "Derin Cilt Bakımı",
-    category: "Bakım",
-    icon: <Sparkles className="h-4 w-4" />,
-    description: "Erkek cildi için özel olarak tasarlanmış maske ve terapi."
-  },
-  {
-    id: "gallery-4",
-    title: "Pompadour Stil",
-    category: "Stil",
-    icon: <Scissors className="h-4 w-4" />,
-    description: "Zamana meydan okuyan, hacimli ve modern saç modelleri."
-  },
-  {
     id: "gallery-9",
     title: "Usta İşçilik",
     category: "Sanat",
@@ -61,7 +46,7 @@ const portfolioItems = [
     id: "gallery-8",
     title: "Premium Bakım",
     category: "Bakım",
-    icon: <Sparkles className="h-4 w-4" />,
+    icon: <Wind className="h-4 w-4" />,
     description: "Saç ve kafa derisi için canlandırıcı özel terapiler."
   }
 ];
