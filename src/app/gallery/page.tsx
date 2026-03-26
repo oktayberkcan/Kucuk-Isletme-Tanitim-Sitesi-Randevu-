@@ -3,7 +3,7 @@
 
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Scissors, Zap, Sparkles, Wind, CheckCircle, Store, Camera } from "lucide-react";
+import { Scissors, Zap, Sparkles, Wind, CheckCircle, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -23,13 +23,6 @@ const portfolioItems = [
     description: "Yüz hatlarınıza uygun, keskin hatlı sakal şekillendirme."
   },
   {
-    id: "gallery-10", // Note: fallback to picsum if ID mismatch, but hints will fix
-    title: "Salon Deneyimi",
-    category: "İç Mekan",
-    icon: <Store className="h-4 w-4" />,
-    description: "Premium hizmet sunduğumuz modern ve şık salonumuz."
-  },
-  {
     id: "gallery-3",
     title: "Geleneksel Tıraş",
     category: "Klasik",
@@ -44,13 +37,6 @@ const portfolioItems = [
     description: "Erkek cildi için özel olarak tasarlanmış maske ve terapi."
   },
   {
-    id: "gallery-11",
-    title: "Klasik Detaylar",
-    category: "İç Mekan",
-    icon: <Camera className="h-4 w-4" />,
-    description: "Her detayında konforu ve lüksü hissedeceğiniz köşeler."
-  },
-  {
     id: "gallery-4",
     title: "Pompadour Stil",
     category: "Stil",
@@ -58,18 +44,25 @@ const portfolioItems = [
     description: "Zamana meydan okuyan, hacimli ve modern saç modelleri."
   },
   {
-    id: "gallery-6",
-    title: "Atmosferimiz",
-    category: "İç Mekan",
-    icon: <Store className="h-4 w-4" />,
-    description: "Royal Cuts kalitesini yansıtan özel tasarım alanlarımız."
-  },
-  {
     id: "gallery-9",
     title: "Usta İşçilik",
     category: "Sanat",
     icon: <CheckCircle className="h-4 w-4" />,
     description: "Hassas makas hareketleri ile size özel dokunuşlar."
+  },
+  {
+    id: "gallery-6",
+    title: "Detay Kesim",
+    category: "Kesim",
+    icon: <Scissors className="h-4 w-4" />,
+    description: "En ince detayına kadar titizlikle çalışılmış saç tasarımı."
+  },
+  {
+    id: "gallery-8",
+    title: "Premium Bakım",
+    category: "Bakım",
+    icon: <Sparkles className="h-4 w-4" />,
+    description: "Saç ve kafa derisi için canlandırıcı özel terapiler."
   }
 ];
 
@@ -89,7 +82,7 @@ export default function GalleryPage() {
               <span className="text-primary italic">Seç.</span>
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
-              Salonumuzun atmosferini ve ustalarımızın elinden çıkan en iyi çalışmaları keşfedin. Size en uygun tarz burada saklı.
+              Usta ellerden çıkan en iyi çalışmalarımızı keşfedin. Size en uygun tarzı bulmak için portfolyomuza göz atın.
             </p>
           </div>
         </div>
@@ -100,8 +93,7 @@ export default function GalleryPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {portfolioItems.map((item) => {
             const imgData = PlaceHolderImages.find(img => img.id === item.id);
-            // Default hints if not found in list to ensure quality
-            const hint = imgData?.imageHint || (item.category === "İç Mekan" ? "barbershop interior" : "mens haircut");
+            const hint = imgData?.imageHint || "barber haircut";
             const url = imgData?.imageUrl || `https://picsum.photos/seed/${item.id}/800/1000`;
             
             return (
