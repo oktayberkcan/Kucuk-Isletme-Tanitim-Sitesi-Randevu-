@@ -60,7 +60,7 @@ export default function BookPage() {
     });
 
     // Opsiyonel Webhook
-    fetch("https://nonoral-willetta-provincially.ngrok-free.app/webhook-test/randevu", {
+    fetch("https://nonoral-willetta-provincially.ngrok-free.dev", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
