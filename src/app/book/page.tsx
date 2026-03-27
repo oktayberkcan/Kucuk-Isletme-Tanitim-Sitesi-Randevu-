@@ -60,11 +60,13 @@ export default function BookPage() {
     });
 
     // Opsiyonel Webhook
-    fetch("https://nonoral-willetta-provincially.ngrok-free.dev", {
+    fetch("https://nonoral-willetta-provincially.ngrok-free.dev/webhook/randevu", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", 
+        "ngrok-skip-browser-warning": "true"
+      },
       body: JSON.stringify(values),
-    }).catch(() => {});
+    }).catch((error) => console.error("Webhook error:", error));
 
     // Başarı simülasyonu
     setTimeout(() => {
